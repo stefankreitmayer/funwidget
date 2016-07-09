@@ -14,7 +14,7 @@ import Subscription exposing (..)
 
 view : Model -> Html Msg
 view model =
-  Svg.svg svgAttributes (svgChildren model.radius)
+  Svg.svg svgAttributes (svgChildren model)
 
 svgAttributes : List (Svg.Attribute Msg)
 svgAttributes =
@@ -26,10 +26,10 @@ svgAttributes =
   , style "position: absolute; top: 0; left: 0;"
   ]
 
-svgChildren : Float -> List (Svg Msg)
-svgChildren radius =
+svgChildren : Model -> List (Svg Msg)
+svgChildren model =
   [
-    renderCircle radius
+    renderCircle model.radius
   ]
 
 renderCircle : Float -> Svg Msg
