@@ -1,12 +1,13 @@
 module Subscription exposing (..)
 
 import Html exposing (Html)
+import Time exposing (Time, second, every)
 
 import Model exposing (..)
 
 
-type Msg = NoOp
+type Msg = Tick Time
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  [] |> Sub.batch
+  every (second/30) Tick

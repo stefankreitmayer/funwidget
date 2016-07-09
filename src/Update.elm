@@ -6,4 +6,10 @@ import Subscription exposing (..)
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update action model =
-  (model, Cmd.none)
+  case action of
+    Tick t ->
+      let
+        radius' = (sin (t/100))*10+12
+        model' = { radius = radius' }
+      in
+        (model', Cmd.none)
