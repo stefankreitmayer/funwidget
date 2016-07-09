@@ -13,7 +13,7 @@ import VirtualDom exposing (property)
 
 view : Model -> Html Msg
 view model =
-  Svg.svg svgAttributes svgChildren
+  Svg.svg svgAttributes (svgChildren model.radius)
 
 
 svgAttributes : List (Svg.Attribute Msg)
@@ -26,12 +26,15 @@ svgAttributes =
   , style "position: absolute; top: 0; left: 0;"
   ]
 
-svgChildren : List (Svg Msg)
-svgChildren =
+svgChildren : Float -> List (Svg Msg)
+svgChildren radius =
   [
-    renderCircle
+    renderCircle radius
   ]
 
-renderCircle : Svg Msg
-renderCircle =
-   circle [ cx "25", cy "25", r "25" ] []
+renderCircle : Float -> Svg Msg
+renderCircle radius =
+  let
+      radiusString = toString radius
+  in
+      circle [ cx "25", cy "25", r radiusString ] []

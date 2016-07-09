@@ -1,7 +1,9 @@
 module Model exposing (..)
 
-type alias Model = String
+type alias Model =
+  { radius : Float }
 
 
-initialModel : String
-initialModel = "Hello from Elm!"
+initialModel : Model
+initialModel =
+  { radius = 3.0 }
