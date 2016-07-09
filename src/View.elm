@@ -1,20 +1,20 @@
 module View exposing (view)
 
 import Html exposing (Html)
+
 import Svg exposing (Svg,circle)
 import Svg.Attributes exposing (style,version,viewBox,height,xHeight,width,cx,cy,r)
 
-import Model exposing (..)
-import Subscription exposing (..)
-
 import Json.Encode as Json
 import VirtualDom exposing (property)
+
+import Model exposing (..)
+import Subscription exposing (..)
 
 
 view : Model -> Html Msg
 view model =
   Svg.svg svgAttributes (svgChildren model.radius)
-
 
 svgAttributes : List (Svg.Attribute Msg)
 svgAttributes =
